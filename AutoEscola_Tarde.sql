@@ -1,0 +1,30 @@
+CREATE DATABASE Auto_Escola
+
+USE Auto_Escola;
+
+CREATE TABLE Cnh (
+	IdCnh INT PRIMARY KEY IDENTITY,
+	DataValidade DATE,
+	Categoria VARCHAR (10)
+);
+
+CREATE TABLE Pessoas (
+	IdPessoas INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(50) NOT NULL,
+	IdCnh INT FOREIGN KEY REFERENCES Cnh (IdCnh)
+);
+
+CREATE TABLE Email (
+	IdEmail INT PRIMARY KEY IDENTITY,
+	Email VARCHAR (70),
+	IdPessoas INT FOREIGN KEY REFERENCES Pessoas (IdPessoas) 
+);
+
+CREATE TABLE Telefone (
+	IdTelefone INT PRIMARY KEY IDENTITY,
+	Numero INT,
+	Operadora VARCHAR (15),
+	IdPessoas INT FOREIGN KEY REFERENCES Pessoas (IdPessoas)
+);
+
+
