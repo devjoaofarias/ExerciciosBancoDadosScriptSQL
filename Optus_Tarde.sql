@@ -72,6 +72,12 @@ WHERE IdArtista = 1;
 SELECT IdArtista, Nome, Localizacao FROM Albuns
 WHERE IdArtista = 2;
 
+-- MESMO EXERCICIO USANDO INNER JOIN
+
+SELECT Artistas.Nome, Albuns.Nome FROM Artistas
+INNER JOIN Albuns ON Artistas.IdArtista = Albuns.IdArtista
+WHERE Albuns.IdArtista = 2
+
 SELECT IdArtista, Nome, Localizacao FROM Albuns
 WHERE IdArtista = 3;
 
@@ -100,8 +106,7 @@ WHERE IdEstilos = 1;
 SELECT IdArtista, IdEstilos FROM Albuns
 WHERE IdEstilos = 2;
 
-SELECT IdArtista, IdEstilos FROM Albuns
-WHERE IdEstilos = 3;
+SELECT IdArtista, IdEstilos FROM Albuns;
 
 SELECT IdArtista, IdEstilos FROM Albuns
 WHERE IdEstilos = 4;
@@ -110,6 +115,21 @@ WHERE IdEstilos = 4;
 
 SELECT Nome, IdArtista, DataLancamento FROM Albuns
 ORDER BY DataLancamento DESC;
+
+-- USANDO INNER JOIN
+SELECT Artistas.Nome as NomeArtista, Albuns.Nome as NomeAlbum, DataLancamento
+FROM Artistas 
+INNER JOIN Albuns ON Artistas.IdArtista = Albuns.IdArtista 
+ORDER BY DataLancamento ASC;
+
+SELECT Artistas.Nome, Estilos.Nome
+FROM Artistas
+INNER JOIN Albuns ON Artistas.IdArtista = Albuns.IdArtista 
+INNER JOIN Estilos ON Estilos.IdEstilos = Albuns.IdEstilos
+WHERE Estilos.IdEstilos = 3
+
+
+
 
 
 
